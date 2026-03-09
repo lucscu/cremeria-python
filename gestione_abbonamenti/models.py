@@ -25,7 +25,7 @@ class BaseModel(Model):
 class Utente(BaseModel):
     # L'id viene creato automaticamente come Primary Key da Peewee
     # id_utente = AutoField()
-    nome = CharField(max_length=255)
+    nome: str = CharField(max_length=255) # type: ignore
     cognome = CharField(max_length=255)
 
     class Meta:

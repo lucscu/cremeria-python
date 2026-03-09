@@ -23,7 +23,7 @@ def inserisci_abbonamento():
             )
 
         if created:
-            print(f"Inserito abbonamento per utente '{utente.nome} {utente.cognome}' e servizio '{servizio.nome}' (ID: {abbonamento.id})")
+            print(f"Inserito nuovo abbonamento per utente '{utente.nome} {utente.cognome}' e servizio '{servizio.nome}' (ID: {abbonamento.id})")
         else:
             print(f"Abbonamento già presente per utente '{utente.nome} {utente.cognome}' e servizio '{servizio.nome}' (ID: {abbonamento.id})")
 
