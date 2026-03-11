@@ -10,7 +10,7 @@ def inserisci_utente_random():
         # Transazione e rollback gestita da peewee
         with db.atomic(): 
             utente: Utente = Utente.create(
-                nome=fake.first_name,
+                nome=fake.first_name(),
                 cognome=fake.last_name()
             )
         
