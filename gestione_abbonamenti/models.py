@@ -1,4 +1,4 @@
-from peewee import SQL, ForeignKeyField, MySQLDatabase, Model, CharField, DateTimeField
+from peewee import SQL, ForeignKeyField, MySQLDatabase, Model, CharField, DateTimeField, DecimalField
 from dotenv import load_dotenv
 import os
 import datetime
@@ -36,6 +36,7 @@ class Servizio(BaseModel):
     # L'id viene creato automaticamente come Primary Key da Peewee
     # id_servizio = AutoField()
     nome = CharField(max_length=255, unique=True)
+    prezzo = DecimalField(max_digits=10, decimal_places=2, auto_round=True)
 
     class Meta:
         table_name = 'servizio'

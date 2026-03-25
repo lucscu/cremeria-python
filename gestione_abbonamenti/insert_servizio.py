@@ -42,7 +42,14 @@ def inserisci_servizio_random():
 
         with db.atomic():
             servizio: Servizio = Servizio.create(
-                nome=fake.domain_name()
+                nome=fake.domain_name(),
+                prezzo=fake.pydecimal(
+                    left_digits=4,     # Cifre prima della virgola (es. fino a 9999)
+                    right_digits=2,    # Centesimi
+                    positive=True,     # Non vogliamo prezzi negativi!
+                    min_value=5,       # Opzionale: prezzo minimo
+                    max_value=500      # Opzionale: prezzo massimo
+                )
             )
 
         print(f"Inserito nuovo servizio: '{servizio.nome}' (ID: {servizio.id})")
