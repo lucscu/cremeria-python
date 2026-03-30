@@ -25,8 +25,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # 'balanced'	Cost-Sensitive	"Le minoranze contano". Il modello diventa un detective molto più attento ai casi rari.
 #
 # con 'balanced' se ci sono 10 volte più onesti che truffatori, ogni errore commesso su una truffa "fà male" al modello 10 volte di più di un errore su un onesto.
-model = LogisticRegression(random_state=42)
-#model = LogisticRegression(class_weight='balanced', random_state=42)
+#model = LogisticRegression(random_state=42)
+model = LogisticRegression(class_weight='balanced', random_state=42)
 model.fit(X_train, y_train)
 
 # 5. RISULTATI
@@ -37,9 +37,9 @@ y_pred = model.predict(X_test)
 probabilita = model.predict_proba(X_test)[:, 1]
 
 # Abbassiamo la soglia a 0.3 (Sii molto sospettoso)
-soglia = 0.3
+soglia = 0.4
 y_pred_nuovo = (probabilita > soglia).astype(int)
 
 print(f"Analisi completata su {len(df)} righe caricate dal file CSV")
-print(classification_report(y_test, y_pred))
-#print(classification_report(y_test, y_pred_nuovo))
+#print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred_nuovo))
