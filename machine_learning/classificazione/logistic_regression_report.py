@@ -13,11 +13,11 @@ y = iris.target
 # Usiamo il 30% dei dati per il test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# 4. Creazione e addestramento del modello
+# 3. Creazione e addestramento del modello
 model = LogisticRegression(random_state=42)
 model.fit(X_train, y_train)
 
-# 5. Facciamo le predizioni sui dati di TEST (quelli che il modello non ha mai visto)
+# 4. Facciamo le predizioni sui dati di TEST (quelli che il modello non ha mai visto)
 y_pred = model.predict(X_test)
 
 # B. Precision, Recall e F1-Score
